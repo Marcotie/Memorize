@@ -19,19 +19,22 @@ class EmojiMemoryGame:ObservableObject{
     @Published private var model = MemoryGame(numberOfPairsOfCards: 8){
        index in return emojis[index]
     }
+    var hello: String?
     
     var cards: Array<MemoryGame<String>.Card>{
         return model.cards
     }
     
     func choose(_ card: MemoryGame<String>.Card){
+        
         model.choose(card)
     }
 //    MARK: - intent
   
     func shuffle(){
         model.shuffle()
-        objectWillChange.send()
+        print(model.cards)
+//        objectWillChange.send()
     }
 
     
